@@ -1,46 +1,190 @@
-# Getting Started with Create React App
+# VL Float Buttons
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![React](https://img.shields.io/badge/React-19.1.1-blue.svg)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-4.9.5-blue.svg)](https://www.typescriptlang.org/)
+[![Ant Design](https://img.shields.io/badge/Ant%20Design-5.27.1-blue.svg)](https://ant.design/)
+[![Storybook](https://img.shields.io/badge/Storybook-9.1.3-blue.svg)](https://storybook.js.org/)
 
-## Available Scripts
+## 📦 Installation
 
-In the project directory, you can run:
+```bash
+# Clone the repository
+git clone <repository-url>
+cd vl-demo
 
-### `npm start`
+# Install dependencies
+npm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Start development server
+npm start
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Run Storybook
+npm run storybook
 
-### `npm test`
+# Build for production
+npm run build
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Quick Start
 
-### `npm run build`
+```tsx
+import React from 'react';
+import { PlusOutlined } from '@ant-design/icons';
+import VLFloatButtonList from './components/VLFloatButtonList';
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+function App() {
+  const buttons = [
+    {
+      icon: <PlusOutlined />,
+      color: 'primary',
+      tooltip: 'Add new item',
+      onClick: () => console.log('Add clicked')
+    },
+    {
+      icon: <PlusOutlined />,
+      color: '#ff4757',
+      tooltip: 'Custom red action',
+      onClick: () => console.log('Custom red clicked')
+    }
+  ];
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  return (
+    <VLFloatButtonList
+      list={buttons}
+      direction="vertical"
+    />
+  );
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+export default App;
+```
 
-### `npm run eject`
+## 📚 Components
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### VLFloatButton
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Single floating action button with extensive customization options.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Props
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `icon` | `React.ReactNode` | - | Icon to display in the button (required) |
+| `color` | `'primary' \| 'danger' \| 'warning' \| 'success' \| hex string` | `'primary'` | Button background color |
+| `tooltip` | `string` | - | Tooltip text to display on hover |
+| `tooltipPlacement` | `TooltipPlacement` | `'top'` | Position of the tooltip |
+| `onClick` | `() => void` | - | Click handler function (required) |
 
-## Learn More
+#### Tooltip Placement Options
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `'top'`, `'left'`, `'right'`, `'bottom'`
+- `'topLeft'`, `'topRight'`, `'bottomLeft'`, `'bottomRight'`
+- `'leftTop'`, `'leftBottom'`, `'rightTop'`, `'rightBottom'`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### VLFloatButtonList
+
+Container component for arranging multiple floating action buttons.
+
+#### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `list` | `VLFloatButtonProps[]` | - | Array of button configurations (required) |
+| `direction` | `'vertical' \| 'horizontal'` | - | Layout direction for buttons (required) |
+
+## 🎨 Color System
+
+### Predefined Colors
+
+| Color | Hex Value | Usage |
+|-------|-----------|-------|
+| `primary` | `#0097D999` | Primary actions, main CTA |
+| `danger` | `#FF695E99` | Delete, remove, destructive actions |
+| `warning` | `#FF9A0399` | Warnings, cautions |
+| `success` | `#18C07D99` | Success states, confirmations |
+
+### Custom Hex Colors
+
+Support for any valid hex color:
+
+```tsx
+<VLFloatButton
+  icon={<PlusOutlined />}
+  color="#ff4757" // Custom red
+  tooltip="Custom color"
+/>
+
+<VLFloatButton
+  icon={<PlusOutlined />}
+  color="#3742fa" // Custom blue
+  tooltip="Another custom color"
+/>
+```
+
+## 🏗️ Architecture
+
+### File Structure
+
+```
+src/
+├── components/
+│   ├── VLFloatButton/
+│   │   ├── VLFloatButton.tsx       # Main component
+│   │   ├── VLFloatButton.scss      # Component styles
+│   │   └── VLFloatButton.stories.tsx # Storybook stories
+│   └── VLFloatButtonList/
+│       ├── VLFloatButtonList.tsx
+│       ├── VLFloatButtonList.scss
+│       └── VLFloatButtonList.stories.tsx
+├── styles/
+│   ├── _variables.scss             # Design tokens
+│   ├── _mixins.scss               # Reusable SCSS mixins
+│   └── globals.scss               # Global styles
+└── types/                        # TypeScript type definitions
+```
+
+## 🧪 Development
+
+### Available Scripts
+
+```bash
+# Development server
+npm start
+
+# Storybook development
+npm run storybook
+
+# Production build
+npm run build
+
+# Code quality checks
+npm run lint
+npm run format
+```
+
+### Storybook
+
+The library includes comprehensive Storybook documentation:
+
+```bash
+npm run storybook
+```
+
+Navigate to `http://localhost:6006` to explore:
+- All component variants
+- Interactive controls
+- Documentation and usage examples
+- Visual testing
+
+## 🎨 Design System
+
+### Color Palette
+
+All colors use **60% opacity** for better visual hierarchy:
+
+```scss
+$color-primary: #0097d999;  // Blue
+$color-danger: #ff695e99;   // Red
+$color-warning: #ff9a0399;  // Orange
+$color-success: #18c07d99;  // Green
+```

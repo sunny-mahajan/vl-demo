@@ -1,24 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { PlusOutlined, DeleteOutlined, WarningOutlined, CheckOutlined } from '@ant-design/icons';
+import VLFloatButtonList from './components/VLFloatButtonList';
 
 function App() {
+  const list = [
+    {
+      icon: <PlusOutlined />,
+      color: 'primary',
+      tooltip: 'Add (Primary)',
+      onClick: () => alert('Add clicked'),
+    },
+    {
+      icon: <DeleteOutlined />,
+      color: '#ff4757',
+      tooltip: 'Delete (Hex Red)',
+      onClick: () => alert('Delete clicked'),
+    },
+    {
+      icon: <WarningOutlined />,
+      color: '#ffa502',
+      tooltip: 'Warn (Hex Orange)',
+      onClick: () => alert('Warn clicked'),
+    },
+    {
+      icon: <CheckOutlined />,
+      color: '#7bed9f',
+      tooltip: 'Done (Hex Green)',
+      onClick: () => alert('Done clicked'),
+    },
+  ];
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>VL Float Buttons Demo</h1>
+        <p>Use Storybook for comprehensive examples.</p>
       </header>
+      <VLFloatButtonList list={list} direction="vertical" />
     </div>
   );
 }

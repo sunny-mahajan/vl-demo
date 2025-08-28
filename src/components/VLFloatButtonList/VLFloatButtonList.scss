@@ -1,0 +1,37 @@
+@use '../../styles/_variables.scss' as *;
+@use '../../styles/_mixins.scss' as *;
+
+.vl-fab-list {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: $vl-z-index;
+
+  &--vertical {
+    .vl-float-button-wrapper {
+      display: block;
+      margin-bottom: $vl-gap;
+
+      .ant-float-btn {
+        @include float-btn-base;
+      }
+    }
+
+    @include fab-list-spacing;
+  }
+
+  &--horizontal {
+    display: flex;
+    flex-direction: row;
+
+    .vl-float-button-wrapper {
+      margin-right: $vl-gap;
+
+      .ant-float-btn {
+        @include float-btn-base;
+      }
+    }
+
+    @include fab-list-spacing;
+  }
+}

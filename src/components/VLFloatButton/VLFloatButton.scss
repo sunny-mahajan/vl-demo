@@ -1,0 +1,63 @@
+@use '../../styles/_variables.scss' as *;
+@use '../../styles/_mixins.scss' as *;
+
+// Wrapper styles for custom colors
+.vl-float-button-wrapper {
+  // Ensure proper styling with higher specificity
+  .ant-float-btn {
+    border: none !important;
+    transition: all 0.2s ease;
+
+    // Apply consistent bold icon styling
+    .anticon {
+      @include bold-antd-icon;
+    }
+  }
+
+  // Custom colors (including default primary) - use CSS custom property
+  &:not([class*="vl-color-"]) .ant-float-btn {
+    background-color: var(--vl-custom-bg, $color-primary) !important;
+
+    // Style the button content for custom colors
+    .ant-float-btn-body {
+      background-color: var(--vl-custom-bg, $color-primary) !important;
+    }
+  }
+
+  // Predefined color classes with higher specificity
+  &.vl-color-primary .ant-float-btn,
+  &.vl-color-primary .ant-float-btn .ant-float-btn-body {
+    background-color: $color-primary !important;
+
+    &:hover {
+      background-color: rgba(0, 151, 217, 0.8) !important;
+    }
+  }
+
+  &.vl-color-danger .ant-float-btn,
+  &.vl-color-danger .ant-float-btn .ant-float-btn-body {
+    background-color: $color-danger !important;
+
+    &:hover {
+      background-color: rgba(255, 105, 94, 0.8) !important;
+    }
+  }
+
+  &.vl-color-warning .ant-float-btn,
+  &.vl-color-warning .ant-float-btn .ant-float-btn-body {
+    background-color: $color-warning !important;
+
+    &:hover {
+      background-color: rgba(255, 154, 3, 0.8) !important;
+    }
+  }
+
+  &.vl-color-success .ant-float-btn,
+  &.vl-color-success .ant-float-btn .ant-float-btn-body {
+    background-color: $color-success !important;
+
+    &:hover {
+      background-color: rgba(24, 192, 125, 0.8) !important;
+    }
+  }
+}

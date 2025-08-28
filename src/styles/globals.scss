@@ -1,0 +1,18 @@
+@use './_variables.scss' as *;
+
+// Optional global resets/additions for the demo
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+}

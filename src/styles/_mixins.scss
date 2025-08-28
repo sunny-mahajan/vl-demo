@@ -1,0 +1,34 @@
+@mixin center-flex {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin bold-antd-icon {
+  color: white !important;
+  font-weight: 900 !important; // Maximum boldness
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-shadow:
+    0 0 1px rgba(255, 255, 255, 0.8),
+    0 0 2px rgba(255, 255, 255, 0.4),
+    0 1px 0 rgba(255, 255, 255, 0.3) !important; // Enhanced bold effect
+  transform: scale(1.15) !important; // More scaling for bolder appearance
+  transform-origin: center !important;
+  filter: contrast(1.2) brightness(1.1) !important; // Enhance contrast and brightness
+}
+
+@mixin float-btn-base {
+  display: block !important;
+  margin: 0 !important;
+  position: relative !important;
+}
+
+@mixin fab-list-spacing {
+  .vl-float-button-wrapper {
+    &:last-child {
+      margin-bottom: 0;
+      margin-right: 0;
+    }
+  }
+}

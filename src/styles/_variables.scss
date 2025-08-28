@@ -1,0 +1,18 @@
+// Design tokens — 60% opacity encoded in hex as '99'
+$color-primary: #0097d999;
+$color-danger: #ff695e99;
+$color-warning: #ff9a0399;
+$color-success: #18c07d99;
+
+// Expose as CSS variables for consumers
+:root {
+  --vl-color-primary: #0097d999;
+  --vl-color-danger: #ff695e99;
+  --vl-color-warning: #ff9a0399;
+  --vl-color-success: #18c07d99;
+}
+
+// Sizing & layout tokens
+$vl-fab-size: 48px;
+$vl-gap: 12px;
+$vl-z-index: 1000;
