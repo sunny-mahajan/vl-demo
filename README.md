@@ -9,7 +9,7 @@
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/sunny-mahajan/vl-demo.git
 cd vl-demo
 
 # Install dependencies

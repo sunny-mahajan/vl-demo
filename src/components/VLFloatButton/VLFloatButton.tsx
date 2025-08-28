@@ -28,9 +28,7 @@ export interface VLFloatButton {
     | 'rightBottom'; // tooltip placement, defaults to 'top'
 }
 
-export interface VLFloatButtonProps extends VLFloatButton {
-  // Keep room for future extension without altering the core interface
-}
+export type VLFloatButtonProps = VLFloatButton;
 
 const VLFloatButton: React.FC<VLFloatButtonProps> = ({
   onClick,

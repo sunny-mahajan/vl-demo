@@ -1,9 +1,11 @@
 import React from 'react';
 import { PlusOutlined, DeleteOutlined, WarningOutlined, CheckOutlined } from '@ant-design/icons';
 import VLFloatButtonList from './components/VLFloatButtonList';
+import './App.css';
 
 function App() {
-  const list = [
+  // Demo button configurations
+  const demoButtons = [
     {
       icon: <PlusOutlined />,
       color: 'primary',
@@ -32,11 +34,21 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>VL Float Buttons Demo</h1>
-        <p>Use Storybook for comprehensive examples.</p>
-      </header>
-      <VLFloatButtonList list={list} direction="vertical" />
+      <div className="App-container">
+        <header className="App-header">
+          <h1>VL Float Buttons Demo</h1>
+          <p className="App-description">
+            Use Storybook for comprehensive examples
+          </p>
+        </header>
+
+        <main className="App-main">
+          <VLFloatButtonList
+            list={demoButtons}
+            direction="vertical"
+          />
+        </main>
+      </div>
     </div>
   );
 }
